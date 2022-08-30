@@ -1,0 +1,5 @@
+.envs/.fastapi.dev
+.envs/.vue.dev
+.envs/.fastapi.prod
+.envs/.vue.prod
+.envs/.db.prod

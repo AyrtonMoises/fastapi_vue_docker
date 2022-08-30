@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+
+  nginx:
+      build:
+        context: ./nginx
+        dockerfile: ./nginx.dockerfile 
+      ports:
+      - "8181:8181"
+      networks:
+      - minha-network
+      depends_on:
+      - backend
+      restart: on-failure
+
+  backend:
+    build:
+        context: ./backend
+        dockerfile: ./fastapi.prod.dockerfile
+    ports:
+      - 5000:5000
+    env_file:
+      - ./.envs/.fastapi.prod
+    command: gunicorn server:app --workers 3 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:5000
+    networks:
+    - minha-network
+    depends_on:
+      - db
+    restart: on-failure
+
+  frontend:
+    build:
+        context: ./frontend
+        dockerfile: ./vue.prod.dockerfile
+        args:
+          - VUE_APP_BACKEND_URL=http://0.0.0.0:5000
+    ports:
+      - 80:80
+    networks:
+    - minha-network
+    depends_on:
+      - backend
+    restart: on-failure
+
+  db:
+    image: postgres:13.4-alpine
+    expose:
+      - 5432
+    env_file:
+      - ./.envs/.db.prod
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+    - minha-network
+    restart: on-failure
+
+volumes:
+  postgres_data:
+
+networks: 
+    minha-network:
+        driver: bridge

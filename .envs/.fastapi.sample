@@ -1,0 +1,4 @@
+ORIGINS=["http://127.0.0.1", "http://127.0.0.1:8080",]
+DATABASE_URL="postgresql://usuario:senha_secreta@db:5432/banco_de_dados"
+ACCESS_SECRET_KEY="sua_access_key"
+REFRESH_SECRET_KEY="seu_refresh_key"

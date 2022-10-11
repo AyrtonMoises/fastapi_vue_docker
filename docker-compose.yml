@@ -19,7 +19,7 @@ services:
         context: ./backend
         dockerfile: ./fastapi.prod.dockerfile
     ports:
-      - 5000:5000
+      - 5000
     env_file:
       - ./.envs/.fastapi.prod
     command: gunicorn server:app --workers 3 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:5000
@@ -34,7 +34,7 @@ services:
         context: ./frontend
         dockerfile: ./vue.prod.dockerfile
         args:
-          - VUE_APP_BACKEND_URL=http://0.0.0.0:5000
+          - VUE_APP_BACKEND_URL=http://0.0.0.0:8181
     ports:
       - 80:80
     networks:

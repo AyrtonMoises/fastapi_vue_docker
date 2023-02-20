@@ -6,9 +6,7 @@ import { useUserStore } from '@/stores/user'
 
 
 export default () => {
-    let headers = {
-        'cache-control': 'no-cache'
-    };
+    let headers = {};
     let accessToken = localStorage.getItem('access_token');
 
     if (accessToken && accessToken !== '') {

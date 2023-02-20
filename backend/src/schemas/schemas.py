@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Optional, List, Union
+from typing import Optional, List, Union, Literal
 
 
 class Opcional(BaseModel):
@@ -18,10 +18,21 @@ class OpcionalOut(BaseModel):
 
 class IngredienteIn(BaseModel):
     descricao: str
-    tipo: str
+    tipo: Literal["C", "P"]= Field(description="(P) Pão ou (C) - Carne")
 
     class Config:
         orm_mode = True
+
+        schema_extra = {
+            "example": [{
+                "descricao": "Picanha",
+                "carne": "C",
+            },
+            {
+                "descricao": "Francês",
+                "carne": "P",
+            }],
+        }
 
 
 class IngredienteOut(BaseModel):

@@ -7,6 +7,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+## Definir variaveis globais
+```
+ORIGINS=["http://127.0.0.1", "http://127.0.0.1:8080","http://localhost", "http://localhost:8080"]
+DATABASE_URL="postgresql://usuario:senha_secreta@db:5432/fastapi_vue"
+ACCESS_SECRET_KEY="HASH_ACCESS_SECRET_KEY"
+REFRESH_SECRET_KEY="HASH_REFRESH_SECRET_KEY"
+```
+
 ## Roda servidor backend
 ```
 cd src

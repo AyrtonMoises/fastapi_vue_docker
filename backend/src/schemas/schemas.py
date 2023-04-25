@@ -24,14 +24,10 @@ class IngredienteIn(BaseModel):
         orm_mode = True
 
         schema_extra = {
-            "example": [{
+            "example": {
                 "descricao": "Picanha",
-                "carne": "C",
-            },
-            {
-                "descricao": "Francês",
-                "carne": "P",
-            }],
+                "tipo": "C",
+            }
         }
 
 

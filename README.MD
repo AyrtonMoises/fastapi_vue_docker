@@ -1,8 +1,9 @@
 # FastAPI + Vue.js + Nginx no Docker
+Sistema simples de pedidos de uma hamburgueria
 
 
 ## Variaveis de ambiente
-Na pasta .envs definir variaveis utilizadas como nos exemplos .sample e nos arquivos docker como desejar
+Na pasta .envs definir variaveis utilizadas como nos exemplos .sample e nos arquivos docker-compose como desejar
 
 #### Desenvolvimento
 .fastapi.dev
@@ -14,14 +15,24 @@ Na pasta .envs definir variaveis utilizadas como nos exemplos .sample e nos arqu
 
 ## Desenvolvimento
 ```
-sudo docker-compose -f docker-compose-dev.yml build
-sudo docker-compose -f docker-compose-dev.yml up
-sudo docker-compose -f docker-compose-dev.yml down
+sudo docker-compose up -d --build
+sudo docker-compose -f docker-compose-dev.yml down -v
 ```
 
 ## Produção
 ```
-sudo docker-compose build
-sudo docker-compose up
-sudo docker-compose down
+sudo docker-compose up -d --build
+sudo docker-compose down -v
 ```
+
+## Criar dados de exemplo para ambiente de desenvolvimento
+```
+bash dados_entrada.sh
+```
+
+WEB:
+http://localhost:8080/
+
+API:
+http://localhost:5000/docs
+

@@ -41,9 +41,9 @@ services:
     expose:
       - 5432
     environment:
-      - POSTGRES_USER=usuario
-      - POSTGRES_PASSWORD=senha_secreta
-      - POSTGRES_DB=fastapi_vue
+      - POSTGRES_USER=user_db
+      - POSTGRES_PASSWORD=pass_db
+      - POSTGRES_DB=db_name
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     networks:

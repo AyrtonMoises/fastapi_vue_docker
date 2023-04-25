@@ -1,4 +1,4 @@
-ORIGINS=["http://127.0.0.1", "http://127.0.0.1:8080",]
-DATABASE_URL="postgresql://usuario:senha_secreta@db:5432/banco_de_dados"
-ACCESS_SECRET_KEY="sua_access_key"
+ORIGINS=["http://127.0.0.1","http://127.0.0.1:8080","http://localhost","http://localhost:8080",]
+DATABASE_URL="postgresql://user_db:pass_db@db:5432/db_name"
+ACCESS_SECRET_KEY="seu_access_secret_key"
 REFRESH_SECRET_KEY="seu_refresh_key"

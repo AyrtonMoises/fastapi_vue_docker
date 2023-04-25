@@ -15,7 +15,7 @@ Na pasta .envs definir variaveis utilizadas como nos exemplos .sample e nos arqu
 
 ## Desenvolvimento
 ```
-sudo docker-compose up -d --build
+sudo docker-compose -f docker-compose-dev.yml up -d --build
 sudo docker-compose -f docker-compose-dev.yml down -v
 ```
 
